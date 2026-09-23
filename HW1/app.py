@@ -10,6 +10,6 @@ def profile_template_render():
     hobbies = ['산책', '카페가기', 'ott시청']
     return render_template("profile.html", hobbies=hobbies)
 
-@app.route("/great/<name>")
+@app.route("/greet/<name>")
 def great_name(name):
-    return render_template("great.html", name=name)
+    return render_template("greet.html", name=name)
