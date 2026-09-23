@@ -11,5 +11,5 @@ def profile_template_render():
     return render_template("profile.html", hobbies=hobbies)
 
 @app.route("/greet/<name>")
-def great_name(name):
+def greet_name(name):
     return render_template("greet.html", name=name)
