@@ -40,7 +40,8 @@ def edit(id):
         todo.text = request.form['text']
         todo.note = request.form['note']
         db.session.commit()
-        return redirect(url_for('edit', id = todo.id))
+        return redirect(url_for('index'))
+    
     return render_template('edit.html', todo = todo)
 
 @app.route('/delete/<int:id>')
