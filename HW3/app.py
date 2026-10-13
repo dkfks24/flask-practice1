@@ -18,7 +18,7 @@ class Todo(db.Model):
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        db.session.add(Todo(text = request.form['todo']))
+        db.session.add(Todo(text = request.form['todo'], note = request.form['note']))
         db.session.commit()
         return redirect(url_for('index'))
 
@@ -32,6 +32,16 @@ def toggle(id):
     todo.done = not todo.done
     db.session.commit()
     return redirect(url_for('index'))
+
+@app.route('/edit/<int:id>', methods = ['GET', 'POST'])
+def edit(id):
+    todo = db.get_or_404(Todo, id)
+    if request.method == 'POST':
+        todo.text = request.form['text']
+        todo.note = request.form['note']
+        db.session.commit()
+        return redirect(url_for('edit', id = todo.id))
+    return render_template('edit.html', todo = todo)
 
 @app.route('/delete/<int:id>')
 def delete(id):
