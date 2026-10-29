@@ -1,10 +1,21 @@
-1. 목록 화면
-<img width="1918" height="871" alt="image" src="https://github.com/user-attachments/assets/47be4eb6-3602-4057-8776-d2a31a746f90" />
+# HW4 : todo 앱에 API 더하기
 
+## 더한 것
+- 설명 칸(note)을 API 로도 주고받게 했습니다.
+- GET /api/todos/?done=true 로 완료한 것만 골라 받게 했습니다.
 
-2. 수정 화면
-<img width="1918" height="870" alt="image" src="https://github.com/user-attachments/assets/d744deaa-b646-4f01-9237-049cb8a95078" />
+## 실행하는 법
+    pip install -r requirements.txt
+    flask --debug run
+    화면 http://127.0.0.1:5000/
+    문서 http://127.0.0.1:5000/api/docs
 
+## 화면
+### 1. 주소 여섯 줄이 모두 보이는 문서
+![docs](docs.png)
 
-3. 서버를 껐다 켠 뒤에도 그대로인 항목
-<img width="1918" height="862" alt="image" src="https://github.com/user-attachments/assets/1f23d3e5-88fc-491b-8eb9-b6811a15e566" />
+### 2. note 를 넣어 만들었더니 201 이 온 모습
+![post](post.png)
+
+### 3. 없는 번호를 불렀더니 404 가 온 모습
+![404](notfound.png)
